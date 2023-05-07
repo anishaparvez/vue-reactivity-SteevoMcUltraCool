@@ -12,7 +12,8 @@ const router = createRouter({
     {
       path: '/cart',
       name: 'cart',
-      component: CartView
+      component: CartView,
+      
     },
   ]
 })

@@ -14,6 +14,6 @@ MOD.toArray = function(favStr){
     ChPi[3]=[ "rook", favStr.search("rook")]
     ChPi[4]=[ "queen", favStr.search("queen")]
     ChPi[5]=[ "king", favStr.search("king")]
-
+    return ChPi.reduce((a,b)=>{(Sn,an)},[])
 }
 export default MOD
