@@ -10,8 +10,8 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/cart',
-      name: 'cart',
+      path: '/fav',
+      name: 'fav',
       component: CartView,
       
     },
