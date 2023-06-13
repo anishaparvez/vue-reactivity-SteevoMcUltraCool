@@ -5,7 +5,7 @@ let prop = defineProps(["name","count"])
 <template>
     <div>
         <h2>{{ prop.name }} &nbsp; <button @click="$emit('remove')">Remove</button></h2>
-        <p>You favorited {{ count }} times.</p>
+        <p>You're ordering {{prop.count}} times</p>
     </div>
 </template>
 

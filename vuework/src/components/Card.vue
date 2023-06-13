@@ -20,7 +20,7 @@ div {
     width: 30%;
     max-height: 49%;
     overflow: auto;
-    background-color: black;
+    background-color: #ACE;
     color: white;
     text-align: center;
 

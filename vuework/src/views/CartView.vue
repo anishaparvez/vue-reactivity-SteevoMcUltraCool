@@ -1,18 +1,19 @@
 <script setup>
+import { RouterLink, RouterView } from 'vue-router'
 import Favorites from '../components/Favorites.vue';
 import FavSlot from '../components/FavSlot.vue';
 import { nextTick,ref } from 'vue';
-let favorites = window.localStorage.getItem("FavArray")
+let cartItems = window.localStorage.getItem("cartItems")
 let rendering = ref(true)
-if (favorites){
-  favorites = JSON.parse(favorites)
+if (cartItems){
+  cartItems = JSON.parse(cartItems)
 }else{
-  favorites=[]
+  cartItems=[]
 }
 async function remove(piece){
-    let index = favorites.findIndex(p => p.name == piece.name)
-    favorites.splice(index,1)
-    window.localStorage.setItem("FavArray",JSON.stringify(favorites))
+    let index = cartItems.findIndex(p => p.name == piece.name)
+    cartItems.splice(index,1)
+    window.localStorage.setItem("cartItems",JSON.stringify(cartItems))
     rendering.value = false
     await nextTick()
     rendering.value = true
@@ -20,9 +21,10 @@ async function remove(piece){
 </script>
 
 <template>
-    <h1>Favorites</h1>
+<RouterLink to="/">Home </RouterLink>
+    <h1>Your Cart</h1>
     <Favorites v-if="rendering">
-        <FavSlot v-for="piece in favorites" :name="piece.name" :count="piece.count" @remove="function(){remove(piece)}"></FavSlot>
+        <FavSlot v-for="piece in cartItems" :name="piece.name" :count="piece.count" @remove="function(){remove(piece)}"></FavSlot>
     </Favorites>
 </template>
 <style scoped>

@@ -4,34 +4,34 @@ import Card from "../components/Card.vue"
 import CardHolder from "../components/CardHolder.vue";
 import { RouterLink, RouterView } from 'vue-router'
 import router from "../router/index.js"
-let favorites = window.localStorage.getItem("FavArray")
-if (favorites){
-  favorites = JSON.parse(favorites)
+let cartItems = window.localStorage.getItem("cartItems")
+if (cartItems){
+  cartItems = JSON.parse(cartItems)
 }else{
-  favorites=[]
+  cartItems=[]
 }
-function favorite(piece){
-  let x = favorites.findIndex(p=> p.name == piece.name)
+function addCart(piece){
+  let x = cartItems.findIndex(p=> p.name == piece.name)
   if (x>=0){
-    favorites[x].count+=1
+    cartItems[x].count+=1
   }else{
-    favorites.push({
+    cartItems.push({
       name:piece.name,
       icon:piece.image,
       count:1,
     })
   }
-  console.log(favorites)
-  window.localStorage.setItem("FavArray",JSON.stringify(favorites))
+  console.log(cartItems)
+  window.localStorage.setItem("cartItems",JSON.stringify(cartItems))
 }
 
 </script>
 
 <template>
-    <RouterLink :to="{name:'fav'}">Favorites</RouterLink>
-    <h1>Chess Pieces</h1>
+    <RouterLink :to="{name:'cart'}">Cart</RouterLink>
+    <h1>Make your order</h1>
   <CardHolder>
-    <Card v-for="piece in data"  :name="piece.name" :value="piece.value" :desc="piece.desc" :image="piece.image" @_clicked="function(){favorite(piece)}" />
+    <Card v-for="food in data"  :name="food.name" :value="food.value" :desc="food.desc" :image="food.image" @_clicked="function(){addCart(food)}" />
   </CardHolder>
 </template>
 <style>
