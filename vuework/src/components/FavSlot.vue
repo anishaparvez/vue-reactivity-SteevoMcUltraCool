@@ -14,7 +14,7 @@ let prop = defineProps(["name","count"])
         margin: 5px auto;
         padding: 2px;
         width: calc(100% - 10px);
-        color: lightgreen;
+        color: rgb(99, 94, 161);
         background-color: black;
     }
 </style>

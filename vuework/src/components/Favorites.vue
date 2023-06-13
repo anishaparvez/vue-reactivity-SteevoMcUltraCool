@@ -8,9 +8,9 @@
 
 <style scoped>
     div {
-        background-color: darkgreen;
-        width: 50vw;
-        height: 80vw;
+        background-color: rgb(100, 0, 78);
+        width: 60vw;
+        height: 70vw;
         overflow: auto;
         margin: auto auto;
         position: relative;
